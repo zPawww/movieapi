@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies API</title>
+    <link rel="stylesheet" href="./style/index.css" />
+  </head>
+  <body>
+    <div class="main">
+      <aside class="main__sidebar">Sidebar</aside>
+      <form action="" class="main__search">
+        <input
+          type="text"
+          name="search"
+          id=""
+          placeholder="Search for movies or TV series"
+          class="search__input"
+        />
+        <button>
+          <img src="./img/search.svg" alt="" class="search__icon" />
+        </button>
+      </form>
+      <article class="main__trending">
+        <h1 class="text__title__trending">Trending</h1>
+        <div class="movies__trending"></div>
+      </article>
+      <article class="main__movies">
+        <h1 class="text__title__movies">Recommended for you</h1>
+        <div class="movies__images"></div>
+      </article>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
