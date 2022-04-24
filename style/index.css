@@ -25,13 +25,24 @@ body {
 }
 
 .main__sidebar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: sidebar;
   background-color: #09203f;
   border-radius: 10px;
   height: 90vh;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.icons__sidebar {
+  margin-left: 20px;
+}
+.icons__sidebar .icon {
+  display: block;
+  padding: 1em;
+  height: 4em;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .main__search {
@@ -151,3 +162,4 @@ body {
 }
 
 /*# sourceMappingURL=index.css.map */
+
