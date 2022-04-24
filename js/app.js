@@ -8,6 +8,9 @@ const form = document.querySelector('form');
 const SEARCH_URL = url + '/search/movie?' + key;
 const button = document.querySelector('.search__icon');
 const title = document.querySelector('.text__title__movies');
+const icons = {
+  home: document.querySelector('.home'),
+};
 
 function getMovies(url) {
   fetch(url)
@@ -86,3 +89,8 @@ form.addEventListener('submit', e => {
     title.innerHTML = 'Search Results ' + value;
   }
 });
+
+icons.home.addEventListener('click', e => {
+  location.reload();
+});
+
