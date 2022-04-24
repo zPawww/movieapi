@@ -137,12 +137,16 @@ body {
 
   .movies__1 {
     padding-right: 120px;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
   }
 
   .images__movies {
     padding-right: 20px;
   }
+  
+  .text__title__movies{
+    white-space: normal;
+}
 
   .main__sidebar {
     display: none;
