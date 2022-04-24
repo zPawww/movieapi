@@ -6,28 +6,36 @@ const trendingDiv = document.querySelector('.movies__trending');
 const div = document.querySelector('.movies__images');
 const form = document.querySelector('form');
 const SEARCH_URL = url + '/search/movie?' + key;
+const button = document.querySelector('.search__icon');
+const title = document.querySelector('.text__title__movies');
 
 function getMovies(url) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      let result = data.results;
-      div.innerHTML = '';
-      result.forEach(element => {
-        const release = element.release_date.split('-').join(' > ');
-        const data = {
-          poster: IMG_URL + element.poster_path,
-          date: release,
-          name: element.title,
-        };
-        div.innerHTML += `
-        <div class="movies__1">
-        <img src="${data.poster}" class="images__movies">
-        <p class="text__movie__subtitle">${data.date}</p>
-        <h1 class="text__movie__title">${data.name}</h1>
-        </div>
-        `;
-      });
+      if (data.results[0] == undefined) {
+        alert('There are no movies, series with this name');
+        title.innerHTML = 'No results!';
+        div.innerHTML = '';
+      } else {
+        let result = data.results;
+        div.innerHTML = '';
+        result.forEach(element => {
+          const release = element.release_date.split('-').join(' > ');
+          const data = {
+            poster: IMG_URL + element.poster_path,
+            date: release,
+            name: element.title,
+          };
+          div.innerHTML += `
+          <div class="movies__1">
+          <img src="${data.poster}" class="images__movies">
+          <p class="text__movie__subtitle">${data.date}</p>
+          <h1 class="text__movie__title">${data.name}</h1>
+          </div>
+          `;
+        });
+      }
     });
 }
 
@@ -69,25 +77,12 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const mainTrending = document.querySelector('.main__trending');
   const main = document.querySelector('.main');
-  const title = document.querySelector('.text__title__movies');
   const value = e.target.search.value;
   const URLSEARCH = SEARCH_URL + '&query=' + value;
   if (value == '') {
-    location.reload();
+    getMovies(API_URL);
   } else {
     getMovies(URLSEARCH);
     title.innerHTML = 'Search Results ' + value;
-    mainTrending.style = 'display: none;';
-    main.style = `
-    display: grid;
-    grid-template-columns: 100px;
-    grid-template-rows: 50px 0px 1fr;
-    grid-template-areas: 
-    "sidebar search search"
-    "sidebar trending trending"
-    "sidebar recomend recomend";
-    gap: 10px;
-    padding: 20px;
-    `;
   }
 });
