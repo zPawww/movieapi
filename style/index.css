@@ -63,6 +63,7 @@ body {
 .search__input::placeholder {
   color: rgb(244, 244, 244);
   letter-spacing: 0.1ch;
+  background-color: #09203f;
 }
 
 .main__trending {
@@ -143,10 +144,6 @@ body {
   .images__movies {
     padding-right: 20px;
   }
-  
-  .text__title__movies{
-    white-space: normal;
-}
 
   .main__sidebar {
     display: none;
@@ -154,4 +151,3 @@ body {
 }
 
 /*# sourceMappingURL=index.css.map */
-
